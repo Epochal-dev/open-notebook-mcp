@@ -33,6 +33,17 @@ def get_auth_token() -> Optional[str]:
     """Get the authentication token from environment."""
     return os.getenv("OPEN_NOTEBOOK_PASSWORD")
 
+def get_cf_access_headers() -> dict[str, str]:
+    """Return Cloudflare Access service-token headers if both env vars are set."""
+    client_id = os.getenv("CF_ACCESS_CLIENT_ID")
+    client_secret = os.getenv("CF_ACCESS_CLIENT_SECRET")
+    if client_id and client_secret:
+        return {
+            "CF-Access-Client-Id": client_id,
+            "CF-Access-Client-Secret": client_secret,
+        }
+    return {}
+
 def generate_request_id() -> str:
     """Generate a unique request ID for tracking."""
     return str(uuid.uuid4())
@@ -459,6 +470,7 @@ async def make_request(
     auth_token = get_auth_token()
     if auth_token:
         headers["Authorization"] = f"Bearer {auth_token}"
+    headers.update(get_cf_access_headers())
     
     async with httpx.AsyncClient(follow_redirects=True, timeout=DEFAULT_TIMEOUT_S) as client:
         try:
