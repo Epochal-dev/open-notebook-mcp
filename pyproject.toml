@@ -1,7 +1,7 @@
 [project]
 name = "open-notebook-mcp"
-version = "0.2.0+cf.access.1"
-description = "MCP server that wraps the Open Notebook API (fork with Cloudflare Access service-token support)"
+version = "0.2.0"
+description = "MCP server that wraps the Open Notebook API"
 authors = [
     { name = "Piotr Mrzygłowski", email = "piotr@epochal.dev" }
 ]
@@ -18,8 +18,8 @@ dev = [
 ]
 
 [project.urls]
-Repository = "https://github.com/Zonatedace/open-notebook-mcp"
-Homepage = "https://github.com/Zonatedace/open-notebook-mcp"
+Repository = "https://github.com/Epochal-dev/open-notebook-mcp"
+Homepage = "https://github.com/Epochal-dev/open-notebook-mcp"
 
 [project.scripts]
 open-notebook-mcp = "open_notebook_mcp:main"

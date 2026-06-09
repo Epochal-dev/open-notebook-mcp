@@ -321,7 +321,7 @@ wheels = [
 
 [[package]]
 name = "open-notebook-mcp"
-version = "0.2.0+cf.access.1"
+version = "0.2.0"
 source = { editable = "." }
 dependencies = [
     { name = "httpx" },
