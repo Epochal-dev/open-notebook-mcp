@@ -698,7 +698,7 @@ async def create_source(
     if title is not None:
         data["title"] = title
     
-    source = await make_request("POST", "/api/sources", json_data=data)
+    source = await make_request("POST", "/api/sources/json", json_data=data)
     return {
         "request_id": generate_request_id(),
         "source": source,
