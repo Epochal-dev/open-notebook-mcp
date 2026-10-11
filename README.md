@@ -341,7 +341,7 @@ To add new tools:
 
 - Python 3.12+
 - Open Notebook instance (local or remote)
-- Dependencies: `mcp[cli]>=1.23.2`, `httpx>=0.28.1`
+- Dependencies: `mcp[cli]>=2,<3`, `httpx>=0.28.1`
 
 ## Contributing
 

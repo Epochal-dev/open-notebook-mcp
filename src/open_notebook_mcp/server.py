@@ -5,15 +5,16 @@ import os
 import re
 import uuid
 from dataclasses import dataclass
+from importlib.metadata import version as _pkg_version
 from typing import Any, Literal, Optional
 
 import httpx
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("open-notebook-mcp")
 
-mcp = FastMCP("open-notebook-mcp")
+mcp = MCPServer("open-notebook-mcp", version=_pkg_version("open-notebook-mcp"))
 
 # -----------------------------
 # Configuration and Constants
@@ -1302,7 +1303,7 @@ def main() -> None:
         transport="streamable-http",
         host=host,
         port=port,
-        path=path,
+        streamable_http_path=path,
         stateless_http=stateless_http,
         json_response=json_response,
     )
